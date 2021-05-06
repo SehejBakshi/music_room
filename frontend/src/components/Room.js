@@ -152,7 +152,7 @@ export default class Room extends Component {
             return this.renderSettings();
         }
         return (
-            <Grid container spacing={1} align='center'>
+            <Grid container spacing={2} align='center'>
                 <Grid item xs={12}>
                     <Typography variant='h6' component='h6'>
                         Code: {this.roomCode}
