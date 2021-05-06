@@ -70,7 +70,7 @@ export default class RoomJoinPage extends Component {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
-                code: this.state.roomCode
+                code: this.state.roomCode,
             })
         };
         fetch('/api/join-room', requestOptions).then((response) => {
@@ -79,7 +79,7 @@ export default class RoomJoinPage extends Component {
             } else {
                 this.setState({
                     error: "Room not found"
-                })
+                });
             }
         }).catch((error) => {
             console.log(error);
