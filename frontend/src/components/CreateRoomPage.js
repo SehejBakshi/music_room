@@ -8,7 +8,7 @@ import Alert from "@material-ui/lab/Alert";
 
 export default class CreateRoomPage extends Component {
     static defaultProps = {
-        votestoSkip: 2, 
+        votesToSkip: 2, 
         guestCanPause: true,
         update: false,
         roomCode: null,
@@ -19,7 +19,7 @@ export default class CreateRoomPage extends Component {
         super(props);
         this.state = {
             guestCanPause: this.props.guestCanPause,
-            votestoSkip: this.props.votestoSkip,
+            votesToSkip: this.props.votesToSkip,
             errorMsg: "",
             successMsg: "",
         };
@@ -32,7 +32,7 @@ export default class CreateRoomPage extends Component {
 
     handleVotesChange(e) {
         this.setState({
-            votestoSkip: e.target.value,
+            votesToSkip: e.target.value,
         });
     }
 
@@ -47,7 +47,7 @@ export default class CreateRoomPage extends Component {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                votes_to_skip: this.state.votestoSkip,
+                votes_to_skip: this.state.votesToSkip,
                 guest_can_pause: this.state.guestCanPause
             }),
         };
@@ -61,7 +61,7 @@ export default class CreateRoomPage extends Component {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                votes_to_skip: this.state.votestoSkip,
+                votes_to_skip: this.state.votesToSkip,
                 guest_can_pause: this.state.guestCanPause,
                 code: this.props.roomCode,
             }),
@@ -192,7 +192,7 @@ export default class CreateRoomPage extends Component {
                             required={true} 
                             type="number" 
                             onChange={this.handleVotesChange}
-                            defaultValue={this.state.votestoSkip} 
+                            defaultValue={this.state.votesToSkip} 
                             inputProps={{
                                 min: 1,
                                 style: {textAlign: 'center'},
