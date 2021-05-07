@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .credentials import REDIRECT_URI, CLIENT_ID, CLIENT_SECRET
+from django.conf import settings
 from rest_framework.views import APIView
 from requests import Request, post
 from rest_framework import status
@@ -7,6 +7,8 @@ from rest_framework.response import Response
 from .util import *
 from api.models import Room
 from .models import Vote
+
+REDIRECT_URI = "http://127.0.0.1:8000/spotify/redirect"
 
 # Create your views here.
 class AuthURL(APIView):
@@ -16,7 +18,7 @@ class AuthURL(APIView):
             'scope': scopes,
             'response_type': 'code', 
             'redirect_uri': REDIRECT_URI,
-            'client_id': CLIENT_ID
+            'client_id': settings.CLIENT_ID
         }).prepare().url
 
         return Response({'url': url}, status=status.HTTP_200_OK)
@@ -29,8 +31,8 @@ def spotify_callback(request, format=None):
         'grant_type': 'authorization_code',
         'code': code,
         'redirect_uri': REDIRECT_URI,
-        'client_id': CLIENT_ID,
-        'client_secret': CLIENT_SECRET
+        'client_id': settings.CLIENT_ID,
+        'client_secret': settings.CLIENT_SECRET
     }).json()
 
     access_token = response.get('access_token')
