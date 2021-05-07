@@ -9,6 +9,18 @@ A shared room for everyone to play songs in and enjoy! Built using Django and Re
 1. django
 2. djangorestframework
 ```
+
+### Add Credentials
+
+Before starting the web server, make sure to make a <code>.env</code> file in the directory where your django settings file is located and write your Spotify Developer ClientID and SecretClientId in it.
+
+<br>
+
+| **WARNING**: If you try to build this app, make sure you have Spotify Premium as no controls will work on the web without Premium. |
+| --- |
+
+<br>
+
 ### Start Web Server
 
 To start the web server you need to run the following sequence of commands.
