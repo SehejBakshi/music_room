@@ -61,6 +61,7 @@ npm run dev
 - [x] Integrate frontend with backend
 - [x] Integrate app with Spotify API
 - [x] Add Controls using API
+- [ ] Integrate with Spotify Web Playback SDK
 - [ ] Add functionality to give names to users' device
 - [ ] Add list of names of devices connected 
 - [ ] Give users permission to add songs to play
